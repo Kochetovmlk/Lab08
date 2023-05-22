@@ -1,0 +1,7 @@
+FROM ubuntu:22.10
+
+RUN apt update && apt install curl --no-install-recommends -y
+
+ENV SERVER_URL http://google.com
+
+ENTRYPOINT bash -c "while true ; do sleep 5 && curl -qq $SERVER_URL; done"

@@ -1,0 +1,16 @@
+FROM ubuntu:22.10
+
+RUN apt update && apt install npm --no-install-recommends -y && \
+    mkdir -p /opt/server
+
+WORKDIR /opt/server
+
+RUN npm init -y && \
+    npm install json-server
+
+COPY package.json /opt/server/package.json
+COPY db.json /opt/server/db.json
+
+EXPOSE 3000
+
+ENTRYPOINT ["npm", "start"]
