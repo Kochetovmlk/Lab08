@@ -1,4 +1,4 @@
-## Lab8
+## Lab08
 nano Dockerfile-client
 ```
 FROM ubuntu:22.10
