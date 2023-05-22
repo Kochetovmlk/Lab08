@@ -77,20 +77,20 @@ version: '3.9'
 
 services:
   server:
-    image: lab8:server
+    image: Lab08:server
     container_name: server
     networks:
-      - lab8-network
+      - Lab08-network
   client:
-    image: lab8:client
+    image: Lab08:client
     container_name: client
     networks:
-      - lab8-network
+      - Lab08-network
     environment:
       - SERVER_URL=http://server:3000/users
 
 networks:
-  lab8-network:
+  Lab08-network:
     driver: "bridge"
     ipam:
       driver: default
@@ -100,8 +100,8 @@ networks:
 ====================================================
 Билд и запуск:
 ```
-docker build -f Dockerfile-server -t lab8:server .
-docker build -f Dockerfile-client -t lab8:client .
+docker build -f Dockerfile-server -t Lab08:server .
+docker build -f Dockerfile-client -t Lab08:client .
 docer-compose up -d
 docker logs client
 docker logs server
